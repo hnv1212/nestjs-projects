@@ -1,7 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ReservationsService } from './reservations.service';
 import { ReservationsController } from './reservations.controller';
-import { AUTH_SERVICE, DatabaseModule, LoggerModule, PAYMENT_SERVICE } from '@app/common';
+import {
+  AUTH_SERVICE,
+  DatabaseModule,
+  LoggerModule,
+  PAYMENT_SERVICE,
+} from '@app/common';
 import { ReservationsRepository } from './reservations.repository';
 import {
   ReservationDocument,
@@ -23,6 +28,10 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
         PORT: Joi.number().required(),
+        AUTH_HOST: Joi.string().required(),
+        AUTH_PORT: Joi.number().required(),
+        PAYMENTS_HOST: Joi.string().required(),
+        PAYMENTS_PORT: Joi.number().required(),
       }),
     }),
     ClientsModule.registerAsync([
