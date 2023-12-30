@@ -3,10 +3,12 @@ FROM node:alpine as development
 WORKDIR /usr/src/app
 
 COPY package.json ./
+COPY tsconfig.json tsconfig.json
 
 RUN npm install --legacy-peer-deps
 
-COPY . .
+COPY apps/reservations apps/reservations
+COPY libs libs
 
 RUN npm run build
 
