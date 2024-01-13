@@ -22,14 +22,14 @@ export class CoffeesController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {}
+  findOne(@Param('id') id: number) {}
 
   @Post()
   create(@Body() createCoffeeDto: CreateCoffeeDto) {}
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCoffeeDto: UpdateCoffeeDto) {}
+  update(@Param('id') id: number, @Body() updateCoffeeDto: UpdateCoffeeDto) {}
 
   @Delete(':id')
-  remove(@Param('id') id: string) {}
+  remove(@Param('id') id: number) {}
 }
