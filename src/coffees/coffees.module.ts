@@ -1,4 +1,4 @@
-import { Injectable, Module } from '@nestjs/common';
+import { Injectable, Module, Scope } from '@nestjs/common';
 import { CoffeesController } from './coffees.controller';
 import { CoffeesService } from './coffees.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -22,6 +22,7 @@ import { Connection } from 'typeorm';
         return coffeeBrands;
       },
       inject: [Connection],
+      scope: Scope.TRANSIENT
     },
   ],
   exports: [CoffeesService],
