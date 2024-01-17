@@ -18,12 +18,9 @@ export class CoffeesService {
     @InjectRepository(Flavor)
     private readonly flavorRepository: Repository<Flavor>,
     private readonly connection: Connection,
-    @Inject(COFFEE_BRANDS) coffeeBrands: string[],
     private readonly configService: ConfigService,
   ) {
-    console.log('🚀 ~ CoffeesService ~ coffeeBrands:', coffeeBrands);
-    console.log('🚀 ~ CoffeesService instantiated!');
-    const databaseHost = this.configService.get<string>('DATABASE_HOST', 'localhost');
+    const databaseHost = this.configService.get('database.host', 'localhost');
     console.log('🚀 ~ CoffeesService ~ databaseHost:', databaseHost);
   }
 

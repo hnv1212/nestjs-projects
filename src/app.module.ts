@@ -9,6 +9,7 @@ import { CoffeeRatingModule } from './coffee-rating/coffee-rating.module';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from '@nestjs/config';
 import Joi from '@hapi/joi';
+import appConfig from './config/app.config';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import Joi from '@hapi/joi';
         DATABASE_HOST: Joi.required(),
         DATABASE_PORT: Joi.number().default(5432),
       }),
+      load: [appConfig]
     }),
     CoffeesModule,
     TypeOrmModule.forRoot({
