@@ -18,6 +18,7 @@ import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
 import { REQUEST } from '@nestjs/core';
 import { Request } from 'express';
 import { Public } from 'src/common/decorators/public.decorator';
+import { ParseIntPipe } from 'src/common/pipes/parse-int.pipe';
 
 // @UsePipes(ValidationPipe)
 @Controller('coffees')
@@ -38,13 +39,16 @@ export class CoffeesController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number) {}
+  findOne(@Param('id', ParseIntPipe) id: number) {}
 
   @Post()
   create(@Body() createCoffeeDto: CreateCoffeeDto) {}
 
   @Patch(':id')
-  update(@Param('id') id: number, @Body(ValidationPipe) updateCoffeeDto: UpdateCoffeeDto) {}
+  update(
+    @Param('id') id: number,
+    @Body(ValidationPipe) updateCoffeeDto: UpdateCoffeeDto,
+  ) {}
 
   @Delete(':id')
   remove(@Param('id') id: number) {}
