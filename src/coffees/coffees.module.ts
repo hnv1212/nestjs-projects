@@ -18,17 +18,17 @@ import coffeesConfig from './config/coffees.config';
   controllers: [CoffeesController],
   providers: [
     CoffeesService,
-    {
-      provide: COFFEE_BRANDS,
-      useFactory: async (connection: Connection) => {
-        // const coffeeBrands = await connection.query('SELECT * ...');
-        const coffeeBrands = await Promise.resolve(['buddy crew', 'nescafe']);
-        console.log('[!] Async factory');
-        return coffeeBrands;
-      },
-      inject: [Connection],
-      scope: Scope.TRANSIENT,
-    },
+    // {
+    //   provide: COFFEE_BRANDS,
+    //   useFactory: async (connection: Connection) => {
+    //     // const coffeeBrands = await connection.query('SELECT * ...');
+    //     const coffeeBrands = await Promise.resolve(['buddy crew', 'nescafe']);
+    //     console.log('[!] Async factory');
+    //     return coffeeBrands;
+    //   },
+    //   inject: [Connection],
+    //   scope: Scope.TRANSIENT,
+    // },
   ],
   exports: [CoffeesService],
 })
