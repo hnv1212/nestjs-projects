@@ -15,7 +15,10 @@ import coffeesConfig from './config/coffees.config';
 export class CoffeesService {
   constructor(
     @InjectRepository(Coffee)
-    private readonly coffeeRepository: Repository<Coffee>,
+    priva0.75x
+    ￼
+    ￼
+    te readonly coffeeRepository: Repository<Coffee>,
     @InjectRepository(Flavor)
     private readonly flavorRepository: Repository<Flavor>,
     private readonly connection: Connection,
