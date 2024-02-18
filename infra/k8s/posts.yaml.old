@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: posts
-spec:
-  containers:
-    - name: posts
-      image: f08b8967e4b17a2c9b69fa86de26039c35d2400dce01ce10f734c7727cd61723
